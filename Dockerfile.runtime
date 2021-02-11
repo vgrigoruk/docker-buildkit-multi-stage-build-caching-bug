@@ -1,0 +1,7 @@
+FROM node:14.15.5-buster-slim
+
+ONBUILD USER peakon
+
+ONBUILD COPY --from=builder --chown=peakon /app/node_modules node_modules
+
+ONBUILD COPY --chown=peakon . .
