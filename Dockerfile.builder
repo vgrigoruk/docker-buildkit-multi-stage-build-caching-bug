@@ -4,4 +4,4 @@ WORKDIR /app
 
 ONBUILD COPY package.json package-lock.json ./
 
-ONBUILD RUN sleep 10 && npm ci --no-audit
+ONBUILD RUN sleep 30 && npm ci --no-audit

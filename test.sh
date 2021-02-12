@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DOCKER_BUILDKIT=1
+
 docker build -f Dockerfile.builder -t builder:1 .
 docker build -f Dockerfile.runtime -t runtime:1 .
 
