@@ -1,9 +1,9 @@
-FROM node:14.15.5 AS builder
+FROM public.ecr.aws/peakon/node:14.15.4-builder AS builder
 
 ADD package.json package-lock.json
 
 RUN npm ci --no-audit
 
-FROM node:15.15.5-slim
+FROM public.ecr.aws/peakon/node:14.15.4-runtime
 
 COPY --from=builder --chown=node /app/package.json package.json
