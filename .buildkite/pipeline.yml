@@ -3,4 +3,4 @@ steps:
       - "npm install"
     plugins:
       - docker#v3.8.0:
-          image: "node:14.15.5-buster"
+          image: public.ecr.aws/peakon/node:14.15.4-ci
