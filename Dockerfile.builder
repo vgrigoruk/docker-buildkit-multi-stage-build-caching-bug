@@ -1,4 +1,4 @@
-FROM node:14.15.5-buster
+FROM public.ecr.aws/peakon/node:14.15.4
 
 WORKDIR /app
 
