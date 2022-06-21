@@ -1,7 +1,7 @@
-FROM node:14.15.5-buster-slim
+FROM public.ecr.aws/peakon/node:14.15.4
 
-ONBUILD USER peakon
+ONBUILD USER node
 
-ONBUILD COPY --from=builder --chown=peakon /app/node_modules node_modules
+ONBUILD COPY --from=builder --chown=node /app/node_modules node_modules
 
-ONBUILD COPY --chown=peakon . .
+ONBUILD COPY --chown=node . .

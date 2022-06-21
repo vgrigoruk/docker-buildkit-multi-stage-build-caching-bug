@@ -1,7 +1,9 @@
 #!/bin/bash
 
-#docker build -f Dockerfile.builder -t builder:1 .
-#docker build -f Dockerfile.runtime -t runtime:1 .
+export DOCKER_BUILDKIT=1
+
+docker build -f Dockerfile.builder -t builder:1 .
+docker build -f Dockerfile.runtime -t runtime:1 .
 
 
 docker build --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from app:2 -f Dockerfile -t app:1 .

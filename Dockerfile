@@ -1,5 +1,9 @@
-FROM builder:1 as builder
+FROM public.ecr.aws/peakon/node:14.15.4-builder AS builder
 
-FROM runtime:1
-# Hack to set up an explicit dependency on builder stage
-COPY --from=builder --chown=peakon /app/package.json package.json
+ADD package.json package-lock.json
+
+RUN npm ci --no-audit
+
+FROM public.ecr.aws/peakon/node:14.15.4-runtime
+
+COPY --from=builder --chown=node /app/package.json package.json
