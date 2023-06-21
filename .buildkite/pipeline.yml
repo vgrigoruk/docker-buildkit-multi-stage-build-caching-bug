@@ -2,5 +2,5 @@ steps:
   - command:
       - "npm install"
     plugins:
-      - docker#v3.8.0:
+      - docker#v3.14.0:
           image: public.ecr.aws/peakon/node:14.15.4-ci
